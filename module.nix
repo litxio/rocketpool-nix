@@ -49,13 +49,14 @@ in {
       "d ${cfg.dataDir}/data/rewards-trees 0755 ${cfg.user} ${cfg.group} - -"
       "d ${cfg.dataDir}/data/custom-keys 0755 ${cfg.user} ${cfg.group} - -"
 
-      "d ${cfg.dataDir}/data/validators 0755 ${cfg.user} ${cfg.group} - -"
       "d ${cfg.dataDir}/data/validators/prysm-non-hd 0755 ${cfg.user} ${cfg.group} - -"
       "d ${cfg.dataDir}/data/validators/prysm-non-hd/direct 0755 ${cfg.user} ${cfg.group} - -"
       "d ${cfg.dataDir}/data/validators/prysm-non-hd/direct/accounts 0755 ${cfg.user} ${cfg.group} - -"
 
-      "f+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl restart ${cfg.validatorServiceName}"
-      "f+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl stop ${cfg.validatorServiceName}"
+      "f+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash"
+      "w+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl restart ${cfg.validatorServiceName}"
+      "f+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash"
+      "w+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl stop ${cfg.validatorServiceName}"
     ];
 
     systemd.services.rocketpool = {
