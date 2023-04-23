@@ -53,9 +53,9 @@ in {
       "d ${cfg.dataDir}/data/validators/prysm-non-hd/direct 0755 ${cfg.user} ${cfg.group} - -"
       "d ${cfg.dataDir}/data/validators/prysm-non-hd/direct/accounts 0755 ${cfg.user} ${cfg.group} - -"
 
-      "f+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash"
+      "f+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash\n\n"
       "w+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl restart ${cfg.validatorServiceName}"
-      "f+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash"
+      "f+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash\n\n"
       "w+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl stop ${cfg.validatorServiceName}"
     ];
 
