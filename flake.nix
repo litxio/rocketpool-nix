@@ -18,7 +18,7 @@
       };
       rocketpool = pkgs.callPackage ./rocketpool.nix {
         inherit pkgs;
-        inherit (gomod2nix) buildGoApplication;
+        buildGoApplication = pkgs.buildGoApplication;
       };
       # module = { ... }: {
       #   imports = [ ./module.nix ];
