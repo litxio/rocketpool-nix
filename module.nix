@@ -54,9 +54,9 @@ in {
       "d ${cfg.dataDir}/data/validators/prysm-non-hd/direct/accounts 0755 ${cfg.user} ${cfg.group} - -"
 
       "f+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash\\n\\n"
-      "w+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl restart ${cfg.validatorServiceName}"
+      "w+ ${cfg.dataDir}/restart-vc.sh 0755 ${cfg.user} ${cfg.group} - sudo /run/current-system/sw/bin/systemctl restart ${cfg.validatorServiceName}"
       "f+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - #!/usr/bin/env bash\\n\\n"
-      "w+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - sudo systemctl stop ${cfg.validatorServiceName}"
+      "w+ ${cfg.dataDir}/stop-validator.sh 0755 ${cfg.user} ${cfg.group} - sudo /run/current-system/sw/bin/systemctl stop ${cfg.validatorServiceName}"
     ];
 
     systemd.services.rocketpool = {
@@ -93,8 +93,8 @@ in {
     };
 
     security.sudo.extraConfig = ''
-      Cmnd_Alias RP_RESTART = /usr/bin/systemctl restart ${cfg.validatorServiceName}
-      Cmnd_Alias RP_STOP = /usr/bin/systemctl stop ${cfg.validatorServiceName}
+      Cmnd_Alias RP_RESTART = /run/current-system/sw/bin/systemctl restart ${cfg.validatorServiceName}
+      Cmnd_Alias RP_STOP = /run/current-system/sw/bin/systemctl stop ${cfg.validatorServiceName}
       ${cfg.user} ALL=(ALL) NOPASSWD: RP_RESTART, RP_STOP
     '';
 
