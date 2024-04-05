@@ -6,7 +6,7 @@
 
 buildGoApplication rec {
   pname = "rocketpool-smartnode";
-  version = "v1.9.3";
+  version = "v1.12.0";
 
   modules = ./gomod2nix.toml;
 
@@ -14,7 +14,7 @@ buildGoApplication rec {
     owner = "rocket-pool";
     repo = "smartnode";
     rev = "${version}";
-    sha256 = "14601jlnshhwlhdqs2rsq50j68gnsjqx9ks4yp32nipip0vvh6wv";
+    sha256 = "sha256-BTt3DmWJyJ0qa0UGpYXa8p6x3zJVcPIHNz+FVgQVffk=";
     # date = "2023-04-21T00:59:21-04:00";
   };
 
